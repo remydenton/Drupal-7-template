@@ -1,0 +1,22 @@
+name = base
+description = Starter theme based on clean.
+base theme = clean
+core = 7.x
+
+screenshot = screenshot.png
+
+stylesheets[all][] = css/BASE.css
+
+scripts[] = js/BASE.js
+
+regions[sidebar_first] = Sidebar first
+regions[sidebar_second] = Sidebar second
+regions[content] = Content
+regions[header] = Header
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[footer] = Footer
+regions[highlighted] = Highlighted
+
+
+
