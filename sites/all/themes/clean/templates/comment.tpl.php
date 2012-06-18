@@ -1,10 +1,8 @@
 <?php
-
 /**
  * @file
  * Default theme implementation to display a comment.
  */
-
 ?>
 <div<?php print $attributes; ?>>
   <?php print $picture; ?>

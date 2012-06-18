@@ -40,7 +40,7 @@ function clean_node_classes(&$variables) {
  * Internet Explorer styles in the .info file and add them to the $styles
  * variable.
  */
-function _clean_process_stylesheets($active_themes) {
+function _clean_process_stylesheets($themes_active) {
   // Prepare the needed variables.
   global $theme_info;
   $framework_styles = array();
@@ -48,14 +48,14 @@ function _clean_process_stylesheets($active_themes) {
 
   // If there is more than one active theme, check all base themes for
   // stylesheets.
-  if (count($active_themes) > 1) {
+  if (count($themes_active) > 1) {
     global $base_theme_info;
     foreach ($base_theme_info as $name => $info) {
       if (isset($info->info['framework stylesheets'])) {
-        $framework_styles[$name] = $info->info['framework stylesheets'];
+        $framework_styles[$info->name] = $info->info['framework stylesheets'];
       }
       if (isset($info->info['conditional stylesheets'])) {
-        $conditional_styles[$name] = $info->info['conditional stylesheets'];
+        $conditional_styles[$info->name] = $info->info['conditional stylesheets'];
       }
     }
   }
@@ -104,6 +104,8 @@ function _clean_process_stylesheets($active_themes) {
               'media' => $media,
               'every_page' => TRUE,
               'browsers' => $browsers,
+              'group' => CSS_THEME,
+              'weight' => 1000,
             ));
           }
         }
@@ -117,22 +119,22 @@ function _clean_process_stylesheets($active_themes) {
  */
 function _clean_theme_collector() {
   $themes = list_themes();
-  $active_themes = array();
+  $themes_active = array();
   global $theme_info;
 
   // If there is a base theme, collect the names of all themes that may have
   // data files to load.
   if (isset($theme_info->base_theme)) {
     global $base_theme_info;
-    foreach ($base_theme_info as $base){
-      $active_themes[$base->name] = $themes[$base->name];
-      $active_themes[$base->name]->path = drupal_get_path('theme', $base->name);
+    foreach ($base_theme_info as $base) {
+      $themes_active[$base->name] = $themes[$base->name];
+      $themes_active[$base->name]->path = drupal_get_path('theme', $base->name);
     }
   }
 
   // Add the active theme to the list of themes that may have data files.
-  $active_themes[$theme_info->name] = $themes[$theme_info->name];
-  $active_themes[$theme_info->name]->path = drupal_get_path('theme', $theme_info->name);
+  $themes_active[$theme_info->name] = $themes[$theme_info->name];
+  $themes_active[$theme_info->name]->path = drupal_get_path('theme', $theme_info->name);
 
-  return $active_themes;
+  return $themes_active;
 }

@@ -1,10 +1,8 @@
 <?php
-
 /**
  * @file
  * Default theme implementation to display a block.
  */
-
 ?>
 <div<?php print $attributes; ?>>
   <?php print render($title_prefix); ?>

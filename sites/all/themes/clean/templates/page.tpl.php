@@ -1,10 +1,8 @@
 <?php
-
 /**
  * @file
  * Default theme implementation to display a single Drupal page.
  */
-
 ?>
 <div id="page-wrapper">
   <div id="page">

@@ -19,6 +19,10 @@ function clean_preprocess_html(&$variables) {
   $active_themes = _clean_theme_collector();
   _clean_process_stylesheets($active_themes);
 
+  // Switch the doctype to one that works better for RDF if the module is
+  // enabled.
+  $variables['doctype'] = (module_exists('rdf')) ? '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML+RDFa 1.1//EN">' : '<!DOCTYPE html>';
+
   $variables['skip_link'] = array(
     '#theme' => 'link',
     '#prefix' => '<div id="skip-link">',
@@ -42,9 +46,9 @@ function clean_preprocess_html(&$variables) {
  * Implements hook_preprocess_page().
  */
 function clean_preprocess_page(&$variables) {
-  // Make the site name into a renderable array.
   // Use a h1 tag for the site name when the content title is empty.
   $tag = (!empty($variables['title'])) ? 'div' : 'h1';
+  // Make the site name into a renderable array.
   $variables['page']['site_name'] = array(
     '#theme' => 'link',
     '#href' => $variables['front_page'],
@@ -171,3 +175,4 @@ function clean_preprocess_block(&$variables) {
 
   $variables['title'] = $block->subject;
 }
+
