@@ -17,16 +17,15 @@ framework stylesheets[all][] = styles/clean.reset-browser.css
 
 stylesheets[all][] = styles/clean.reset-drupal.css
 stylesheets[all][] = styles/system.menus.css
-stylesheets[all][] = styles/clean.base.css
 stylesheets[all][] = styles/clean.forms.css
-stylesheets[all][] = styles/clean.menus.css
 stylesheets[all][] = styles/clean.layout.css
 stylesheets[all][] = styles/clean.typography.css
 stylesheets[all][] = styles/clean.content.css
 
-; Information added by drupal.org packaging script on 2012-04-18
+
+; Information added by drupal.org packaging script on 2012-07-10
 version = "7.x-1.x-dev"
 core = "7.x"
 project = "clean"
-datestamp = "1334707774"
+datestamp = "1341922239"
 

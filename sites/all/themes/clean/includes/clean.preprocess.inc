@@ -96,7 +96,10 @@ function clean_preprocess_page(&$variables) {
         'clearfix',
       ),
     ),
-    '#heading' => t('Main menu'),
+    '#heading' => array(
+      'text' => t('Main menu'),
+      'level' => 'h2',
+    ),
   );
   $variables['page']['secondary_menu'] = array(
     '#theme' => 'links__system_secondary_menu',
@@ -109,7 +112,10 @@ function clean_preprocess_page(&$variables) {
         'clearfix',
       ),
     ),
-    '#heading' => t('Secondary menu'),
+    '#heading' => array(
+      'text' => t('Secondary menu'),
+      'level' => 'h2',
+    ),
   );
 }
 

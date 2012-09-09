@@ -56,3 +56,8 @@ a.fieldset-title {
 .vertical-tabs fieldset.vertical-tabs-pane .fieldset-wrapper {
   padding: 0;
 }
+
+.vertical-tabs ul.vertical-tabs-list li a {
+  overflow: hidden;
+}
+
