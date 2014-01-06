@@ -158,11 +158,11 @@ function clean_preprocess_comment(&$variables) {
 
   $variables['attributes_array']['id'] = 'comment-' . $comment->cid;
   $variables['attributes_array']['class'][] = $variables['status'];
-  
+
   if ($comment->new) {
     $variables['attributes_array']['class'][] = 'comment-new';
   }
-  
+
   if ($variables['zebra']) {
     $variables['attributes_array']['class'][] = 'comment-' . $variables['zebra'];
   }
@@ -173,11 +173,10 @@ function clean_preprocess_comment(&$variables) {
  */
 function clean_preprocess_block(&$variables) {
   $block = $variables['block'];
-  
+
   $variables['attributes_array']['id'] = $variables['block_html_id'];
   $variables['title_attributes_array']['class'][] = 'block-title';
   $variables['content_attributes_array']['class'][] = 'block-content';
-  $variables['content_attributes_array']['class'][] = 'clearfix';
 
   $variables['title'] = $block->subject;
 }

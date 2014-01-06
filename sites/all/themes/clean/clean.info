@@ -23,9 +23,9 @@ stylesheets[all][] = styles/clean.typography.css
 stylesheets[all][] = styles/clean.content.css
 
 
-; Information added by drupal.org packaging script on 2012-07-10
+; Information added by Drupal.org packaging script on 2013-12-30
 version = "7.x-1.x-dev"
 core = "7.x"
 project = "clean"
-datestamp = "1341922239"
+datestamp = "1388367206"
 
