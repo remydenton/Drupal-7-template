@@ -11,3 +11,13 @@ function base_preprocess_page(&$variables) {
   
 }
 
+/**
+ * Implements hook_preprocess_views_view_unformatted().
+ */
+function base_preprocess_views_view_unformatted(&$vars) {
+  // Add clearfix class to each row.
+  foreach ($vars['rows'] as $id => $row) {
+    $vars['classes'][$id][] = 'clearfix';
+    $vars['classes_array'][$id] = implode(' ', $vars['classes'][$id]);
+  }
+}
